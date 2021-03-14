@@ -1,0 +1,26 @@
+version: 2.1
+orbs:
+  node: circleci/node@3.0.0
+  heroku: circleci/heroku@1.0.1
+jobs:
+  build:
+    executor: node/default
+    steps:
+      - checkout
+      - node/install-packages
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git
+workflows:
+    build-test-deploy:
+      jobs:
+        - build
+        - deploy:  
+            requires:
+              - build
+            filters:
+              branches:
+                only: master

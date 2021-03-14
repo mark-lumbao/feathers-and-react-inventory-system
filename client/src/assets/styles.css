@@ -1,0 +1,13 @@
+/*
+@NOTE Link to styles
+https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=1565C0
+*/
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
